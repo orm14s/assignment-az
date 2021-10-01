@@ -1,0 +1,19 @@
+<div @inOut class="country-item" *ngIf="item">
+
+  <span class="name-info">
+    <div class="title">
+      {{ item.title }}
+    </div>
+
+    <div>
+      <strong>{{ item.capital }}</strong>,
+      <small>{{ item.subregion }}</small>
+    </div>
+  </span>
+
+  <span class="population-info">
+    <small>Population</small>
+    <strong>{{ item.population | number }}</strong>
+  </span>
+
+</div>

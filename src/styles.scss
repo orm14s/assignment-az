@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use '~@angular/material' as mat;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/utilities';
+
+$font-main: 'Inter', Arial, sans-serif;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: $font-main;
+}
+
+$primary-color: #03A9F4;
+$accent-color: #607D8B;
+$light-color: #9E9E9E;
+
+$custom-typography: mat.define-typography-config(
+  $font-family: $font-main
+);
+
+@include mat.core($custom-typography);

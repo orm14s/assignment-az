@@ -1,0 +1,28 @@
+<ng-container *ngIf="countries$ | async as countries else onLoading">
+
+  <div class="mb-2">
+    <mat-form-field appearance="fill">
+      <mat-label>Search country...</mat-label>
+      <input matInput placeholder="Ex. Thailand" value="" autocomplete="off" #inp>
+    </mat-form-field>
+  </div>
+
+  <ng-container *ngIf="countries?.length else noCountries;">
+    <ng-container *ngFor="let item of countries | sort: 'asc' : 'title' | filter: inp.value : 'title'; trackBy: trackByFn">
+
+      <app-countries-item [item]="item"></app-countries-item>
+
+    </ng-container>
+  </ng-container>
+
+</ng-container>
+
+<ng-template #onLoading>
+  <app-loading-list-spinner></app-loading-list-spinner>
+</ng-template>
+
+<ng-template #noCountries>
+  <div>
+    No Data
+  </div>
+</ng-template>
